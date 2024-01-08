@@ -15,15 +15,6 @@ function success(input) {
     input.className = 'form-control is-valid';
 }
 
-function checkEmail(input) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-   
-    if(re.test(input.value)) {
-        success(input);
-    } else {
-        error(input, 'hatalı bir mail adresi');
-    }
-}
 
 function checkRequired(inputs) {
     inputs.forEach(function(input) {
@@ -33,6 +24,17 @@ function checkRequired(inputs) {
             success(input);
         }
     });  
+}
+
+
+function checkEmail(input) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   
+    if(re.test(input.value)) {
+        success(input);
+    } else {
+        error(input, 'hatalı bir mail adresi');
+    }
 }
 
 function checkLength(input, min, max) {
